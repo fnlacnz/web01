@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nuclear System — Gamified week</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="index.html">⚡ Momentum OS</a>
+  <div class="links">
+    <a href="new-me.html">🧠 New Me</a>
+    <a href="nuke-today.html">🎯 Nuke Today</a>
+    <a href="nuke-xyz.html">🚀 Nuke XYZ</a>
+    <a href="nuclear-system.html" class="active">⚛ Nuclear System</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <h1>1 day = 20 points. Max 2 categories. Review weekly.</h1>
+  <p>Hardness + urgency allocate points. Hit ≥ 50% to level up.</p>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <h2>🗓️ Weekly planner</h2>
+    <p class="muted">Assign up to 2 categories per day. Adjust points with hardness sliders.</p>
+    <div id="nsWeek" class="days"></div>
+    <div class="summary">
+      <div>Weekly total: <span id="nsTotal">0</span> / 120</div>
+      <div>Status: <span id="nsStatus">Not started</span></div>
+      <button class="mini ghost" id="nsReset">Reset week</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🏆 Achievements</h2>
+    <div id="nsBadges" class="chips"></div>
+  </section>
+
+  <section class="card">
+    <h2>📊 Review</h2>
+    <div class="row">
+      <textarea id="nsReview" class="input" placeholder="What worked? What didn’t? What changes next week?"></textarea>
+      <button class="mini" id="nsSaveReview">Save</button>
+    </div>
+    <div id="nsReviewView" class="quote"></div>
+  </section>
+</main>
+
+<footer class="foot"><p>Points create focus. Focus creates results.</p></footer>
+
+<script src="assets/app.js"></script>
+<script>Momentum.initNuclearSystem();</script>
+</body>
+</html>
