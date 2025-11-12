@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nuke XYZ — Target and deadline</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="index.html">⚡ Momentum OS</a>
+  <div class="links">
+    <a href="new-me.html">🧠 New Me</a>
+    <a href="nuke-today.html">🎯 Nuke Today</a>
+    <a href="nuke-xyz.html" class="active">🚀 Nuke XYZ</a>
+    <a href="nuclear-system.html">⚛ Nuclear System</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <h1>Pick a mission. Set a deadline. Stack micro-wins.</h1>
+  <p>Identity + clear goal + feedback = velocity.</p>
+</header>
+
+<main class="wrap grid-2">
+  <section class="card">
+    <h2>🎯 Mission setup</h2>
+    <div class="row">
+      <input id="nxGoal" type="text" placeholder="Define the mission" />
+      <input id="nxDeadline" type="date" />
+      <button class="mini" id="nxSave">Save</button>
+    </div>
+    <p id="nxView" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>📈 Progress & micro-wins</h2>
+    <div class="progress"><div class="bar" id="nxBar"></div></div>
+    <p><span id="nxPct" class="xp">0%</span> complete</p>
+    <div class="row">
+      <button class="mini" data-win="3">+3% micro‑win</button>
+      <button class="mini" data-win="5">+5% milestone</button>
+      <button class="mini danger" id="nxReset">Reset</button>
+    </div>
+    <div id="nxTips" class="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>⏱️ Focus blocks</h2>
+    <div class="row">
+      <select id="nxSession">
+        <option value="15">15m</option><option value="25" selected>25m</option><option value="50">50m</option>
+      </select>
+      <button class="mini" id="nxStart">Start</button>
+      <button class="mini ghost" id="nxStop">Stop</button>
+    </div>
+    <div id="nxClock" class="clock">25:00</div>
+    <p id="nxFocusStatus" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>📋 Roadmap</h2>
+    <div class="row">
+      <input id="nxTask" type="text" placeholder="Add a step" />
+      <button class="mini" id="nxAdd">Add</button>
+    </div>
+    <div id="nxRoadmap" class="list"></div>
+  </section>
+</main>
+
+<footer class="foot"><p>Ship small. Ship often.</p></footer>
+
+<script src="assets/app.js"></script>
+<script>Momentum.initNukeXYZ();</script>
+</body>
+</html>
