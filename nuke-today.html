@@ -5,54 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nuke Today — Execute the day</title>
 <link rel="stylesheet" href="assets/style.css" />
+<meta name="color-scheme" content="dark light">
 </head>
 <body>
-<nav class="nav">
-  <a class="brand" href="index.html">⚡ Momentum OS</a>
-  <div class="links">
-    <a href="new-me.html">🧠 New Me</a>
-    <a href="nuke-today.html" class="active">🎯 Nuke Today</a>
-    <a href="nuke-xyz.html">🚀 Nuke XYZ</a>
-    <a href="nuclear-system.html">⚛ Nuclear System</a>
-  </div>
-</nav>
-
-<header class="subhero">
-  <h1>One thing first. Hours left → plan → act.</h1>
-  <p>Subtract, schedule, execute. Ambiguity kills momentum.</p>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">Momentum OS</a>
+    <div class="links">
+      <a class="active" href="nuke-today.html">Nuke Today</a>
+      <a href="new-me.html">New Me</a>
+      <a href="nuke-xyz.html">Nuke XYZ</a>
+      <a href="nuclear-system.html">Nuclear System</a>
+    </div>
+    <div class="tools">
+      <button class="mini" data-theme="auto">🌓</button>
+      <button class="mini" data-theme="dark">🌑</button>
+      <button class="mini" data-theme="light">☀️</button>
+      <button class="mini" data-theme="contrast">⚙️</button>
+    </div>
+  </nav>
 </header>
 
-<main class="wrap grid-2">
-  <section class="card">
-    <h2>⏳ Hours left calculator</h2>
-    <div class="row">
-      <input id="ntNow" type="time" />
-      <input id="ntNextEvent" type="time" />
-      <button class="mini" id="ntCalc">Calculate</button>
-    </div>
-    <p id="ntHours" class="muted"></p>
+<main class="wrap">
+  <section class="subhero">
+    <h1>Hours left → plan → act</h1>
+    <p class="muted">Implementation intentions + time-blocking = reduced procrastination and stronger follow-through.</p>
   </section>
 
+  <!-- Hours-left calculator -->
   <section class="card">
-    <h2>🎯 Most important thing</h2>
+    <h2>Hours-left calculator</h2>
     <div class="row">
-      <input id="ntMIT" type="text" placeholder="Define the one thing precisely" />
-      <input id="ntStart" type="time" />
-      <input id="ntDuration" type="number" min="10" max="180" placeholder="mins" />
+      <label>Now <input id="ntNow" type="time" /></label>
+      <label>Next event <input id="ntNextEvent" type="time" /></label>
+      <button class="mini" id="ntCalc">Calculate</button>
+    </div>
+    <p id="ntHours" class="muted">Enter times to calculate.</p>
+  </section>
+
+  <!-- Most important thing: plan + alarm + timer -->
+  <section class="card">
+    <h2>Most important thing</h2>
+    <div class="row">
+      <input id="ntMIT" type="text" placeholder="Precise task (no ambiguity)" />
+      <input id="ntStart" type="time" aria-label="Start time" />
+      <input id="ntDuration" type="number" min="10" max="180" value="25" aria-label="Duration (minutes)" />
       <button class="mini" id="ntPlan">Plan</button>
     </div>
-    <div id="ntPlanView" class="list"></div>
+    <div id="ntPlanView" class="list" aria-live="polite"></div>
     <div class="row">
-      <button id="ntAlarm" class="mini">⏰ Set alarm</button>
-      <button id="ntFocus" class="mini">⏱️ Start focus</button>
+      <button id="ntAlarm" class="mini">Set reminder</button>
+      <button id="ntFocus" class="mini">Start focus</button>
+      <button id="ntCancel" class="mini ghost">Cancel focus</button>
+    </div>
+    <div class="row">
+      <div class="clock" id="ntClock" aria-live="polite">00:00</div>
+      <div class="progress slim"><div class="bar" id="ntFocusBar" style="width:0%"></div></div>
     </div>
     <p id="ntStatus" class="muted"></p>
   </section>
 
+  <!-- Action queue (supporting tasks) -->
   <section class="card">
-    <h2>📦 Action queue</h2>
+    <h2>Action queue</h2>
     <div class="row">
-      <input id="ntTask" type="text" placeholder="Add supporting tasks" />
+      <input id="ntTask" type="text" placeholder="Add supporting task" />
       <select id="ntCat">
         <option>Prep</option><option>Core</option><option>Review</option>
       </select>
@@ -61,16 +78,42 @@
     <div id="ntQueue" class="list"></div>
   </section>
 
+  <!-- Reflection (WOOP) -->
   <section class="card">
-    <h2>🎁 Unlocks</h2>
-    <p class="muted">Hidden boosts appear after you ship the MIT.</p>
-    <div id="ntRewards" class="rewards"></div>
+    <h2>WOOP reflection</h2>
+    <p class="muted">Wish, Outcome, Obstacle, Plan — increases goal attainment without hype.</p>
+    <div class="row">
+      <input id="ntWish" type="text" placeholder="Wish (today’s intent)" />
+      <input id="ntOutcome" type="text" placeholder="Outcome (what good results from it?)" />
+    </div>
+    <div class="row">
+      <input id="ntObstacle" type="text" placeholder="Likely obstacle (be honest)" />
+      <input id="ntPlanIf" type="text" placeholder="If obstacle → then plan" />
+      <button class="mini" id="ntWOOPSave">Save</button>
+    </div>
+    <div id="ntWOOPView" class="list"></div>
+  </section>
+
+  <!-- Daily review -->
+  <section class="card">
+    <h2>Daily review</h2>
+    <p class="muted">Two questions to tighten the loop: What created momentum? What caused drag?</p>
+    <div class="row">
+      <textarea id="ntReview" class="input" placeholder="Short review (1–3 sentences)"></textarea>
+      <button class="mini" id="ntReviewSave">Save</button>
+    </div>
+    <div id="ntReviewView" class="quote"></div>
   </section>
 </main>
 
-<footer class="foot"><p>Subtract. Schedule. Ship.</p></footer>
+<footer class="foot">
+  <p>Clarity over compulsion. Evidence over gimmicks.</p>
+</footer>
 
 <script src="assets/app.js"></script>
-<script>Momentum.initNukeToday();</script>
+<script>
+  Momentum.nukeToday();
+</script>
 </body>
 </html>
+
