@@ -4,75 +4,77 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Momentum OS — Home</title>
+<link rel="preload" href="assets/style.css" as="style" />
 <link rel="stylesheet" href="assets/style.css" />
+<meta name="color-scheme" content="dark light">
 </head>
 <body>
-<nav class="nav">
-  <a class="brand" href="index.html">⚡ Momentum OS</a>
-  <div class="links">
-    <a href="new-me.html">🧠 New Me</a>
-    <a href="nuke-today.html">🎯 Nuke Today</a>
-    <a href="nuke-xyz.html">🚀 Nuke XYZ</a>
-    <a href="nuclear-system.html">⚛ Nuclear System</a>
-  </div>
-  <div class="tools">
-    <button class="mini" data-theme="dark">🌑</button>
-    <button class="mini" data-theme="light">☀️</button>
-    <button class="mini" data-theme="neon">🌈</button>
-    <button class="mini" data-theme="minimal">📜</button>
-  </div>
-</nav>
-
-<header class="hero">
-  <h1>Design your day to design your life.</h1>
-  <p>Modern, fast, game-like productivity built on behavioral science.</p>
-  <div class="hero-cta">
-    <a class="btn" href="nuke-today.html">Start today</a>
-    <a class="btn ghost" href="nuke-xyz.html">Set a target</a>
-  </div>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html">Momentum OS</a>
+    <div class="links">
+      <a href="nuke-today.html">Nuke Today</a>
+      <a href="new-me.html">New Me</a>
+      <a href="nuke-xyz.html">Nuke XYZ</a>
+      <a href="nuclear-system.html">Nuclear System</a>
+    </div>
+    <div class="tools" aria-label="Theme">
+      <button class="mini" data-theme="auto" aria-label="Auto theme">🌓</button>
+      <button class="mini" data-theme="dark" aria-label="Dark theme">🌑</button>
+      <button class="mini" data-theme="light" aria-label="Light theme">☀️</button>
+      <button class="mini" data-theme="contrast" aria-label="High contrast">⚙️</button>
+    </div>
+  </nav>
 </header>
 
-<main class="wrap grid-2">
-  <section class="card">
-    <h2>🔥 Identity priming</h2>
-    <p id="identity">You are the kind of person who executes the most important thing first.</p>
+<main class="wrap">
+  <section class="hero">
+    <h1>Design your day. Ship your week.</h1>
+    <p class="muted">Evidence-based workflows: clarity, time-blocking, precommitment, reflection, and review.</p>
     <div class="row">
-      <input id="identityInput" type="text" placeholder="Rewrite your identity statement" />
-      <button class="mini" id="identitySave">Save</button>
+      <a class="btn" href="nuke-today.html">Start today</a>
+      <a class="btn ghost" href="nuke-xyz.html">Set a mission</a>
     </div>
   </section>
 
   <section class="card">
-    <h2>📈 Momentum snapshot</h2>
-    <div class="stats">
-      <div class="stat"><div class="label">Streak</div><div id="homeStreak" class="value">0</div></div>
-      <div class="stat"><div class="label">Level</div><div id="homeLevel" class="value">1</div></div>
-      <div class="stat"><div class="label">XP</div><div id="homeXP" class="value">0</div></div>
+    <h2>Identity statement</h2>
+    <p id="homeIdentity" class="quote">I focus on one meaningful task at a time.</p>
+    <div class="row">
+      <input id="homeIdentityInput" type="text" placeholder="Rewrite your identity statement" />
+      <button class="mini" id="homeIdentitySave">Save</button>
     </div>
-    <div class="progress"><div class="bar" id="homeProgressBar"></div></div>
-    <p class="muted">Progress auto-aggregates from your pages.</p>
+  </section>
+
+  <section class="card grid-3">
+    <div>
+      <h3>Streak</h3>
+      <div id="homeStreak" class="metric">0</div>
+    </div>
+    <div>
+      <h3>Level</h3>
+      <div id="homeLevel" class="metric">1</div>
+    </div>
+    <div>
+      <h3>XP</h3>
+      <div id="homeXP" class="metric">0</div>
+    </div>
   </section>
 
   <section class="card">
-    <h2>🗺️ Choose your mode</h2>
-    <ul class="modes">
-      <li><a href="new-me.html">New Me → pointed journaling, patterns, preventive moves</a></li>
-      <li><a href="nuke-today.html">Nuke Today → schedule by hours left, one decisive action</a></li>
-      <li><a href="nuke-xyz.html">Nuke XYZ → specific goal, deadline, micro-wins</a></li>
-      <li><a href="nuclear-system.html">Nuclear System → daily points, weekly review, gamified</a></li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>🎁 Variable rewards</h2>
-    <p class="muted">Unlock boosts at 30% / 60% / 90% weekly progress.</p>
-    <div id="homeRewards" class="rewards"></div>
+    <h2>Weekly progress</h2>
+    <div class="progress"><div id="homeProgressBar" class="bar" style="width:0%"></div></div>
+    <p class="muted" id="homeProgressText">0% from missions + points</p>
   </section>
 </main>
 
-<footer class="foot"><p>Built for flow. Minimal friction. Immediate feedback.</p></footer>
+<footer class="foot">
+  <p>Built for clarity, not compulsion. Bengaluru-friendly rhythm.</p>
+</footer>
 
 <script src="assets/app.js"></script>
-<script>Momentum.initHome();</script>
+<script>
+  Momentum.home();
+</script>
 </body>
 </html>
