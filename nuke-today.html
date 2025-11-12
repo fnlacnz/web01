@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nuke Today — Execute the day</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="index.html">⚡ Momentum OS</a>
+  <div class="links">
+    <a href="new-me.html">🧠 New Me</a>
+    <a href="nuke-today.html" class="active">🎯 Nuke Today</a>
+    <a href="nuke-xyz.html">🚀 Nuke XYZ</a>
+    <a href="nuclear-system.html">⚛ Nuclear System</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <h1>One thing first. Hours left → plan → act.</h1>
+  <p>Subtract, schedule, execute. Ambiguity kills momentum.</p>
+</header>
+
+<main class="wrap grid-2">
+  <section class="card">
+    <h2>⏳ Hours left calculator</h2>
+    <div class="row">
+      <input id="ntNow" type="time" />
+      <input id="ntNextEvent" type="time" />
+      <button class="mini" id="ntCalc">Calculate</button>
+    </div>
+    <p id="ntHours" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>🎯 Most important thing</h2>
+    <div class="row">
+      <input id="ntMIT" type="text" placeholder="Define the one thing precisely" />
+      <input id="ntStart" type="time" />
+      <input id="ntDuration" type="number" min="10" max="180" placeholder="mins" />
+      <button class="mini" id="ntPlan">Plan</button>
+    </div>
+    <div id="ntPlanView" class="list"></div>
+    <div class="row">
+      <button id="ntAlarm" class="mini">⏰ Set alarm</button>
+      <button id="ntFocus" class="mini">⏱️ Start focus</button>
+    </div>
+    <p id="ntStatus" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>📦 Action queue</h2>
+    <div class="row">
+      <input id="ntTask" type="text" placeholder="Add supporting tasks" />
+      <select id="ntCat">
+        <option>Prep</option><option>Core</option><option>Review</option>
+      </select>
+      <button class="mini" id="ntAdd">Add</button>
+    </div>
+    <div id="ntQueue" class="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>🎁 Unlocks</h2>
+    <p class="muted">Hidden boosts appear after you ship the MIT.</p>
+    <div id="ntRewards" class="rewards"></div>
+  </section>
+</main>
+
+<footer class="foot"><p>Subtract. Schedule. Ship.</p></footer>
+
+<script src="assets/app.js"></script>
+<script>Momentum.initNukeToday();</script>
+</body>
+</html>
